@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>to-do-list</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="main-container">
+      <header class="navbar">
+        <div class="logo">
+          <i data-lucide="sparkles"></i>
+          <span>Dovyn</span>
+        </div>
+        <div class="date-container">
+          <i data-lucide="sun-medium"></i>
+          <time datetime="2026-01-09">  Friday, Jan 9</time>
+        </div>
+      </header>
+
+      <section class="greetings-container">
+        <h1 class="greetings">Good afternoon! ✨</h1>
+        <p>You have <span>2</span> tasks left</p>
+      </section>
+
+      <nav class="filterbtns">
+        <button class="btn-style active">All</button>
+        <button class="btn-style">Pending</button>
+        <button class="btn-style">Completed</button>
+      </nav>
+
+      <section class="add-task">
+        <form class="add-task-form card">
+          <input
+            type="text"
+            placeholder="What needs to be done?"
+            name="task"
+            id="task-input"
+            maxlength="350"
+            required
+          />
+          <div class="add-task-btns">
+            <button type="submit" class="task-submit btn-style">
+              <i data-lucide="plus"></i> Add Task
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="pending-task">
+        <header class="task-header">
+          <h2><i data-lucide="list-checks"></i> Pending</h2>
+          <span class="task-count">2 tasks</span>
+        </header>
+        <ul class="task-list">
+          <li class="task card">
+            <input type="checkbox" />
+            <label>
+              <div class="task-content">
+                <span class="tast-text">Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur</span>
+                <time class="task-time"
+                  ><i data-lucide="calendar-days"></i>9 jan 2026</time
+                >
+              </div>
+            </label>
+            <button class="task-deletebtn">
+              <i data-lucide="trash-2"></i>
+            </button>
+          </li>
+        </ul>
+      </section>
+
+      <section class="completed-task">
+        <header class="task-header">
+          <h2><i data-lucide="list-checks"></i> Completed</h2>
+          <span class="task-count">2 tasks</span>
+        </header>
+
+        <ul class="task-list">
+          <li class="task card completed">
+            <input type="checkbox" />
+            <label>
+              <div class="task-content">
+                <span class="task-text">Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur</span>
+                <time class="task-time"
+                  ><i data-lucide="calendar-days"></i> 9 jan 2026</time
+                >
+              </div>
+            </label>
+            <button class="task-deletebtn">
+              <i data-lucide="trash-2"></i>
+            </button>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
