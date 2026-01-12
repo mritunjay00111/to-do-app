@@ -22,7 +22,7 @@
         </div>
         <div class="date-container">
           <i data-lucide="sun-medium"></i>
-          <time datetime="2026-01-09">  Friday, Jan 9</time>
+          <time></time>
         </div>
       </header>
 
@@ -61,11 +61,14 @@
           <span class="task-count">2 tasks</span>
         </header>
         <ul class="task-list">
-          <li class="task card">
-            <input type="checkbox" />
+          <li class="task card" data-id="0">
+            <input type="checkbox" class="task-check"/>
             <label>
               <div class="task-content">
-                <span class="tast-text">Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur</span>
+                <span class="task-text"
+                  >Lorem ipsum dolor sit Lorem ipsum dolor sit amet
+                  consectetur</span
+                >
                 <time class="task-time"
                   ><i data-lucide="calendar-days"></i>9 jan 2026</time
                 >
@@ -78,18 +81,38 @@
         </ul>
       </section>
 
-      <section class="completed-task">
+      <section class="completed-task" >
         <header class="task-header">
           <h2><i data-lucide="list-checks"></i> Completed</h2>
           <span class="task-count">2 tasks</span>
         </header>
 
         <ul class="task-list">
+          <li class="task card completed" data-id="0">
+            <input type="checkbox" />
+            <label>
+              <div class="task-content">
+                <span class="task-text"
+                  >Lorem ipsum dolor sit Lorem ipsum dolor sit amet
+                  consectetur</span
+                >
+                <time class="task-time"
+                  ><i data-lucide="calendar-days"></i> 9 jan 2026</time
+                >
+              </div>
+            </label>
+            <button class="task-deletebtn">
+              <i data-lucide="trash-2"></i>
+            </button>
+          </li>
           <li class="task card completed">
             <input type="checkbox" />
             <label>
               <div class="task-content">
-                <span class="task-text">Lorem ipsum dolor sit Lorem ipsum dolor sit amet consectetur</span>
+                <span class="task-text"
+                  >Lorem ipsum dolor sit Lorem ipsum dolor sit amet
+                  consectetur</span
+                >
                 <time class="task-time"
                   ><i data-lucide="calendar-days"></i> 9 jan 2026</time
                 >
