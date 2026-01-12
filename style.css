@@ -115,7 +115,7 @@ section {
   margin-right: 0.3rem;
   background-color: var(--cardbg-color);
 }
-.filterbtns button:hover{
+.filterbtns button:hover {
   filter: brightness(90%);
   cursor: pointer;
 }
@@ -151,7 +151,7 @@ section {
   display: flex;
   justify-content: flex-end;
 }
-.add-task-btns button:hover{
+.add-task-btns button:hover {
   cursor: pointer;
   filter: brightness(150%);
 }
@@ -198,9 +198,10 @@ section {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
-.task:hover{
-box-shadow: 0 0.1rem 0.5rem var(--task-color) ;
+.task:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .task-content {
   display: flex;
@@ -218,7 +219,7 @@ box-shadow: 0 0.1rem 0.5rem var(--task-color) ;
   cursor: pointer;
   flex-shrink: 0;
 }
-.task input[type="checkbox"]:hover{
+.task input[type="checkbox"]:hover {
   cursor: pointer;
   filter: brightness(95%);
   background-color: var(--metadata-color);
@@ -250,21 +251,21 @@ box-shadow: 0 0.1rem 0.5rem var(--task-color) ;
   opacity: 100%;
   cursor: pointer;
 }
-.task-deletebtn:hover{
+.task-deletebtn:hover {
   background-color: var(--main-color);
 }
 .task-deletebtn:hover svg {
   stroke: var(--appbg-color);
 }
 
-.task.completed{
+.task.completed {
   filter: grayscale(50%);
 }
-.task.completed .task-text{
+.task.completed .task-text {
   color: var(--completed-text-color);
   text-decoration: line-through;
 }
-.task.completed input[type="checkbox"]::after{
+.task.completed input[type="checkbox"]::after {
   content: "✔️";
   display: flex;
   justify-content: center;
@@ -286,5 +287,3 @@ box-shadow: 0 0.1rem 0.5rem var(--task-color) ;
   margin: 0 auto;
   padding: 0 var(--page-padding);
 }
-
-
