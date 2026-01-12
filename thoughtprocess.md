@@ -36,3 +36,22 @@ fix content class either remove it or work around it
 add hover state to buttons and checkbox
 
 add styling for completed task
+
+add functionality to delete btn
+thinking of adding data-index in html for index based deletion
+then ill have to maintain index of these elements as well
+
+greeting task is gramatically wrong 1 task >1 tasks fix it 
+task counter function is unnecesary;
+
+tick should only be displayed in checked state fix css 
+
+when checkbox is clicked in pending task
+use find on pendingtaskarr using dataset.id 
+
+set iscomplete to true
+add it in completed task arr 
+remove it from pendingtask arr
+splice(idx,1)
+
+next up add local storage and transitions.
