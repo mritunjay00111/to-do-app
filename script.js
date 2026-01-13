@@ -10,10 +10,13 @@ const greetingHeading = greetingEl.querySelector("h1");
 const greetingTaskCount = greetingEl.querySelector("span");
 const addTaskInput = document.getElementById("task-input");
 const addTaskForm = document.querySelector(".add-task-form");
-const pendTaskCont = document.querySelector(".pending-task .task-list");
-const compTaskCont = document.querySelector(".completed-task .task-list");
-const pendTaskCount = document.querySelector(".pending-task .task-count");
-const compTaskCount = document.querySelector(".completed-task .task-count");
+const penTaskWrapper = document.querySelector(".pending-task");
+const pendTaskCont = penTaskWrapper.querySelector(".task-list");
+const pendTaskCount = penTaskWrapper.querySelector(".task-count");
+const compTaskWrapper = document.querySelector(".completed-task");
+const compTaskCount = compTaskWrapper.querySelector(".task-count");
+const compTaskCont = compTaskWrapper.querySelector(".task-list");
+const filterBtns = document.querySelectorAll(".filterbtns button");
 
 const now = new Date();
 let taskID = 1;
@@ -48,9 +51,10 @@ function setCount() {
 }
 
 function updateUI() {
-  pendTaskCont.innerHTML = rndrTask(pendingTask);
   compTaskCont.innerHTML = rndrTask(completedTask);
+  pendTaskCont.innerHTML = rndrTask(pendingTask);
   lucide.createIcons();
+  setLocal();
 }
 
 function addTask(e) {
@@ -138,7 +142,7 @@ function rndrTask(arr) {
             <input type="checkbox" />
             <label>
               <div class="task-content">
-                <span class="tast-text">${text}</span>
+                <span class="task-text">${text}</span>
                 <time class="task-time"><i data-lucide="calendar-days"></i>${tskdate}</time>
               </div>
             </label>
@@ -151,15 +155,56 @@ function rndrTask(arr) {
   return tempArr.join("");
 }
 
+function filterBtnActive(clckedBtn) {
+  filterBtns.forEach((btn) => {
+    btn.classList.remove("active");
+  });
+  clckedBtn.classList.add("active");
+}
+
+function handleFilter(e) {
+  if (!e.target.closest(".btn-style")) return;
+  const clckedBtn = e.target;
+  const btnFltr = e.target.dataset.filter;
+  filterBtnActive(clckedBtn);
+  compTaskWrapper.classList.toggle("hidden", btnFltr === "pending");
+  penTaskWrapper.classList.toggle("hidden", btnFltr === "completed");
+  updateUI();
+  setCount();
+}
+
+function setLocal() {
+  localStorage.setItem("pendTask", JSON.stringify(pendingTask));
+  localStorage.setItem("compTask", JSON.stringify(completedTask));
+  localStorage.setItem("currTaskID", JSON.stringify(taskID));
+}
+
+function getLocal() {
+  const pendItems = JSON.parse(localStorage.getItem("pendTask")) || [];
+  const compItems = JSON.parse(localStorage.getItem("compTask")) || [];
+  const itemID = Number(localStorage.getItem("currTaskID")) || 1;
+  pendItems.forEach((item) => {
+    pendingTask.push(item);
+  });
+  compItems.forEach((item) => {
+    completedTask.push(item);
+  });
+  taskID = itemID;
+}
+//init
 setNavDate();
 greetingHeading.textContent = `${getGreeting()}! ✨`;
+getLocal();
 setCount();
 updateUI();
-
 addTaskForm.addEventListener("submit", addTask);
 pendTaskCont.addEventListener("click", (e) => {
   handlePendingTask(e);
 });
 compTaskCont.addEventListener("click", (e) => {
   handleCompletedTask(e);
+});
+
+filterBtns.forEach((btn) => {
+  btn.addEventListener("click", handleFilter);
 });
