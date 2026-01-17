@@ -40,7 +40,6 @@ This project was created to strengthen my understanding of core JavaScript conce
 └── README.md
 ⚙️ How It Works
 Tasks are stored in two arrays: pendingTask && completedTask
-
 Each task includes:
 taskID
 taskText
@@ -48,9 +47,7 @@ taskDate
 isCompleted
 
 UI is dynamically rendered using JavaScript
-
 Tasks persist across refreshes using localStorage
-
 Filters toggle visibility without modifying stored data
 
 🚀 Getting Started
